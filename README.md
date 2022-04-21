@@ -1,7 +1,6 @@
-# Leetcode 解题记录
+# Leetcode problem solving records
 ## Introduction
-开始做leetcode上的题，记录下学习过程。
+record the learning process
 ## Data Structure
 - [Array and Matrix](.md)
 ## Algorithm
-## 知识补充
