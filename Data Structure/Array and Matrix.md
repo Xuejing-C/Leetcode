@@ -27,7 +27,7 @@ public static void test_arr() {
 不是真正的地址，而是经过处理过后的数值。二维数组的每一行头结点的地址是没有规则的，更谈不上连续。
 
 Java的二维数组可能是如下排列的方式：
-![算法通关数组3](https://img-blog.csdnimg.cn/20201214111631844.png)
+<div align="center"> <img src="https://img-blog.csdnimg.cn/20201214111631844.png" width="350px"> </div><br>
 
 5. 稀疏数组(sparsearray)
 ......
