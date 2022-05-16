@@ -1,4 +1,4 @@
-# Array
+# 数组
 ## 一、知识点
 1. 数组是存放在**连续内存空间**上的**相同类型**数据的集合。可通过下标索引(**0-based**)获取到下标下对应的数据。
 
@@ -29,7 +29,13 @@ public static void test_arr() {
 Java的二维数组可能是如下排列的方式：
 <div align="center"> <img src="https://img-blog.csdnimg.cn/20201214111631844.png" width="350px"> </div><br>
 
-5. 稀疏数组(sparsearray)
-......
+5. 二维数组转稀疏数组(sparsearray)
+
+(1) 遍历原始二维数组，得到有效数据的个数N。
+
+(2) 创建稀疏数组 sparseArr int[N + 1][3]。sparseArr[0][0] = row, sparseArr[0][1] = col, sparseArr[0][2] = sum。
+
+(3) 遍历原始二维数组，将有效数据的行、列、值存入稀疏数组。
+
 ## 二、题目
 
