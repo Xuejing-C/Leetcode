@@ -1,7 +1,9 @@
 # Leetcode解题记录
 ## 一、引言
 学习笔记
-## 二、数据结构
+## 二、Java基础知识
+- [基础语法](/Java基础知识/基础语法.md)
+## 三、数据结构
 数据结构包括：**线性结构**和**非线性结构**。
 ### 1. 线性结构
 (1) 数据元素之间存在**一对一**的线性关系。  
@@ -19,9 +21,9 @@
 - [数组](/Data%20Structure/Array%20and%20Matrix.md)
 - [链表](/Data%20Structure/Linked%20List.md)
 - [栈和队列](/Data%20Structure/Stack%20and%20Queue.md)
-## 三、算法
+## 四、算法
 - [二分查找](/Algorithm/二分查找.md)
-## 四、参考
+## 五、参考
 尚硅谷 Java 数据结构和算法
 
 代码随想录
