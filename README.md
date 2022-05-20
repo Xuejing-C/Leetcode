@@ -22,6 +22,8 @@
 ### 3. 题目
 - [数组](/Data%20Structure/Array%20and%20Matrix.md)
 - [链表](/Data%20Structure/Linked%20List.md)
+- [哈希表](/Data%20Structure/哈希表.md)
+- [字符串](/Data%20Structure/字符串.md)
 - [栈和队列](/Data%20Structure/Stack%20and%20Queue.md)
 ## 四、算法
 - [二分查找](/Algorithm/二分查找.md)
