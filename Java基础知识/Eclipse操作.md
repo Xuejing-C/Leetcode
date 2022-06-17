@@ -18,3 +18,5 @@ public static int binarySearch(int[] arr, int left, int right, int findVal) {
 }
 ```
 2. 导入包：Ctrl+1/Ctrl+Shift+M/Ctrl+Shift+O/右单击->Source->Organize Imports。
+
+3. 替换变量名：Alt+Shift+R/右键->Refactor->Rename。
