@@ -25,7 +25,7 @@
 - [哈希表](/Data%20Structure/哈希表.md)
 - [字符串](/Data%20Structure/字符串.md)
 - [栈和队列](/Data%20Structure/Stack%20and%20Queue.md)
-- [二叉树](/Data%20Structure/Stack%20and%20二叉树.md)
+- [二叉树](/Data%20Structure/二叉树.md)
 ## 四、算法
 - [二分查找](/Algorithm/二分查找.md)
 - [双指针法](/Algorithm/双指针法.md)
