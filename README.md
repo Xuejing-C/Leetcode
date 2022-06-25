@@ -29,6 +29,7 @@
 ## 四、算法
 - [二分查找](/Algorithm/二分查找.md)
 - [双指针法](/Algorithm/双指针法.md)
+- [回溯算法](/Algorithm/回溯算法.md)
 ## 五、参考
 尚硅谷 Java 数据结构和算法
 
