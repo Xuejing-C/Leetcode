@@ -30,6 +30,8 @@
 - [二分查找](/Algorithm/二分查找.md)
 - [双指针法](/Algorithm/双指针法.md)
 - [回溯算法](/Algorithm/回溯算法.md)
+- [贪心算法](/Algorithm/贪心算法.md)
+- [动态规划](/Algorithm/动态规划.md)
 ## 五、参考
 尚硅谷 Java 数据结构和算法
 
