@@ -221,3 +221,133 @@ class myQueue {
 }
 */
 ```
+
+## 三、单调栈
+```Java
+// 739. 每日温度
+	public static int[] dailyTemperatures(int[] temperatures) {
+        int[] res = new int[temperatures.length];
+        Deque<Integer> stk = new LinkedList<>();
+        stk.push(0);
+        for (int i = 1; i < temperatures.length; i++){
+            if (temperatures[i] <= temperatures[stk.peek()]){
+                stk.push(i);
+            }else{
+            	while (!stk.isEmpty() && temperatures[i] > temperatures[stk.peek()]) {
+	                int j = stk.pop();
+	                res[j] = i - j;
+            	}
+            	stk.push(i);
+            }
+        }
+        return res;
+    }
+	
+	
+	// 496.下一个更大元素 I
+	public static int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        int[] res = new int[nums1.length];
+        Arrays.fill(res, -1);
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
+        for (int i = 0; i < nums1.length; i++){
+            hashMap.put(nums1[i], i);
+        }
+        Deque<Integer> stk = new LinkedList<>();
+        stk.push(0);
+        for (int i = 1; i < nums2.length; i++){
+            if (nums2[i] <= nums2[stk.peek()]){
+                stk.push(i);
+            }else{
+                while (!stk.isEmpty() && nums2[i] > nums2[stk.peek()]){
+                    int j = stk.pop();
+                    if (hashMap.containsKey(nums2[j])){
+                        int index = hashMap.get(nums2[j]);
+                        res[index] = nums2[i];
+                    }
+                }
+                stk.push(i);
+            }
+        }
+        return res;
+    }
+	
+	
+	// 503.下一个更大元素II
+	public int[] nextGreaterElements(int[] nums) {
+        int len = nums.length;
+        int[] res = new int[len];
+        Arrays.fill(res, -1);
+        Deque<Integer> stk = new LinkedList<>();
+        stk.push(0);
+        for (int i = 1; i < 2 * len; i++){
+            while (!stk.isEmpty() && nums[i % len] > nums[stk.peek()]){
+                int j = stk.pop();
+                res[j % len] = nums[i % len]; 
+            }
+            stk.push(i % len);
+        }
+        return res;
+    }
+	
+	
+	// 42. 接雨水
+	// 双指针法
+	// 动态规划
+	// 单调栈
+	public int trap(int[] height) {
+        if (height.length <= 2) return 0;
+        int res = 0;
+        Deque<Integer> stk = new LinkedList<>();
+        stk.push(0);
+        for (int i = 1; i < height.length; i++){
+            if (height[i] < height[stk.peek()]){
+                stk.push(i);
+            }else if (height[i] == height[stk.peek()]){
+                stk.pop();
+                stk.push(i);
+            }else{
+                while (!stk.isEmpty() && (height[i] > height[stk.peek()])){
+                    int mid = stk.pop();
+                    if(!stk.isEmpty()){
+                        int h = Math.min(height[stk.peek()], height[i]) - height[mid];
+                        int w = i - stk.peek() - 1;
+                        res += h * w;
+                    }
+                }
+                stk.push(i);
+            }
+        }
+        return res;
+    }
+	
+	
+	// 84.柱状图中最大的矩形
+	// 动态规划
+	// 单调栈
+	public static int largestRectangleArea(int[] heights) {
+        int[] newHeights = new int[heights.length + 2];
+        for (int i = 0; i < heights.length; i++){
+            newHeights[i + 1] = heights[i];
+        }
+        Deque<Integer> stk = new LinkedList<>();
+        stk.push(0);
+        int res = 0;
+        for (int i = 1; i < newHeights.length; i++){
+            if (newHeights[i] > newHeights[stk.peek()]){
+                stk.push(i);
+            }else if (newHeights[i] == newHeights[stk.peek()]){
+                stk.pop();
+                stk.push(i);
+            }else{
+                while(newHeights[i] < newHeights[stk.peek()]){
+                    int mid = stk.pop();
+                    int w = i - stk.peek() - 1;
+                    int h = newHeights[mid];
+                    res = Math.max(res, w * h);
+                }
+                stk.push(i);
+            }
+        }
+        return res;
+    }
+```
