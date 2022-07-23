@@ -599,7 +599,7 @@ int[] res = Arrays.copyOf(nums, nums.length);
 
 * 举例：Input: nums = [8,1,2,2,3]，Output: [4,0,1,1,3]
 
-* 难度：简单
+* 难度：简单。有点难。
 
 * 思路：
 
