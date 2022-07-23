@@ -635,7 +635,7 @@ int[] res = Arrays.copyOf(nums, nums.length);
 
 * 举例：Input: nums = [1,2,3,4]，Output: false.
 
-* 难度：简单。有点难。
+* 难度：简单。简单，但有要注意的点。
 
 * 思路：
  
@@ -675,4 +675,19 @@ int[] res = Arrays.copyOf(nums, nums.length);
         }
         return false;
     }
+```
+### 1207. 独一无二的出现次数
+* 要求：给定一个整数数组 arr，如果它是有效的山脉数组就返回 true，否则返回 false。
+
+* 举例：Input: nums = [1,2,3,4]，Output: false.
+
+* 难度：简单。简单，但有要注意的点。
+
+* 思路：
+ 
+  * 双指针：要注意左或右指针没移动的情况！！
+
+* 代码：
+```Java
+
 ```
