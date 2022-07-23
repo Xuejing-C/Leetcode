@@ -77,7 +77,7 @@ int[] res = Arrays.copyOf(nums, nums.length);
 * [941. 有效的山脉数组](#941-有效的山脉数组)
 * [1207. 独一无二的出现次数](#1207-独一无二的出现次数)
 * [189. 旋转数组](#189-旋转数组)
-* [941. 有效的山脉数组](#941-有效的山脉数组)
+* [724. 寻找数组的中心下标](#724-寻找数组的中心下标)
 * [941. 有效的山脉数组](#941-有效的山脉数组)
 
 ```Java
@@ -712,5 +712,25 @@ int[] res = Arrays.copyOf(nums, nums.length);
             left++;
             right--;
         }
+    }
+```
+### 724. 寻找数组的中心下标
+* 要求：给你一个整数数组 nums，请计算数组的中心下标。   
+* 举例：Input: nums = [2,1,-1]; Output: 0   
+* 难度：简单。 简单。   
+* 代码：
+```Java
+    public int pivotIndex(int[] nums) {
+        int leftSum = 0;
+        int rightSum = 0;
+        for (int num : nums) {
+        	rightSum += num;
+        }
+        for (int i = 0; i < nums.length; i++){
+        	leftSum += nums[i];
+            if (leftSum == rightSum) return i;
+            rightSum -= nums[i];
+        }
+        return -1;
     }
 ```
