@@ -79,7 +79,7 @@ int[] res = Arrays.copyOf(nums, nums.length);
 * [189. 旋转数组](#189-旋转数组)
 * [724. 寻找数组的中心下标](#724-寻找数组的中心下标)
 * [922. 按奇偶排序数组II](#922-按奇偶排序数组II)
-* [941. 有效的山脉数组](#941-有效的山脉数组)
+* [35. 搜索插入位置](#35-搜索插入位置)
 
 ```Java
 /**
@@ -736,6 +736,53 @@ int[] res = Arrays.copyOf(nums, nums.length);
     }
 ```
 ### 922. 按奇偶排序数组II
+* 要求：给定一个非负整数数组A，A中一半整数是奇数，一半整数是偶数。对数组进行排序，以便当A[i]为奇数时，i也是奇数；当A[i]为偶数时，i也是偶数。    
+* 举例：Input: nums = [4,2,5,7]; Output: [4,5,2,7] ([4,7,2,5], [2,5,4,7], [2,7,4,5] would also have been accepted.)    
+* 难度：简单。有点难。   
+* 思路：   
+  * 方法一：创建辅助数组。   
+  * **方法二：
+    (1) 时间复杂度：O(n)。因为偶数位和奇数位都只操作一次，不是n/2 * n/2的关系，而是n/2 + n/2的关系！      
+    (2) 空间复杂度：O(1)。in-place！**     
+* 代码：
+```C++
+    //方法一
+    class Solution {
+    public:
+        vector<int> sortArrayByParityII(vector<int>& A) {
+	    vector<int> result(A.size());
+	    int evenIndex = 0;  // 偶数下标
+	    int oddIndex = 1;   // 奇数下标
+	    for (int i = 0; i < A.size(); i++) {
+	        if (A[i] % 2 == 0) {
+		    result[evenIndex] = A[i];
+		    evenIndex += 2;
+	        }
+	        else {
+		    result[oddIndex] = A[i];
+		    oddIndex += 2;
+	        }
+	    }
+	    return result;
+        }
+    };
+```
+```Java
+    // 方法二
+    public int[] sortArrayByParityII(int[] nums) {
+        int oddIndex = 1;
+        for (int evenIndex = 0; evenIndex < nums.length; evenIndex += 2){
+            if (nums[evenIndex] % 2 == 1){
+                while (nums[oddIndex] % 2 != 0) oddIndex += 2;
+                int temp = nums[evenIndex];
+                nums[evenIndex] = nums[oddIndex];
+                nums[oddIndex] = temp;
+            }
+        }
+        return nums;
+    }
+```
+### 35. 搜索插入位置
 * 要求：给你一个数组 nums，对于其中每个元素 nums[i]，请你统计数组中比它小的所有数字的数目。   
 * 举例：Input: nums = [8,1,2,2,3]，Output: [4,0,1,1,3]   
 * 难度：简单。有点难。   
@@ -747,5 +794,4 @@ int[] res = Arrays.copyOf(nums, nums.length);
     (3) 遍历原数组，从哈希表中获取结果。  
 * 代码：
 ```Java
-
 ```
