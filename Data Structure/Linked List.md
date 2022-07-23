@@ -3,6 +3,8 @@
 1. 头指针(head)：不存放具体的数据；作用就是表示单链表的头。
 2. 在面试的时候，需要自己手写链表！！！
 ## 二、题目
+* [234. 回文链表](#234-回文链表)
+
 ```Java
 public class ListNode {
 	int val;
@@ -193,4 +195,29 @@ public class MyLinkedList {
 	
 	// eclipse查看源码：ctrl + shift + T
     
+```
+### 234. 回文链表
+* 要求：给你一个数组 nums，对于其中每个元素 nums[i]，请你统计数组中比它小的所有数字的数目。   
+* 举例：Input: nums = [8,1,2,2,3]，Output: [4,0,1,1,3]   
+* 难度：简单。有点难。   
+* 思路：   
+  * 方法一：双层for循环暴力查找。   
+  * 方法二：   
+    (1) 复制出新数组并排序。  
+    (2) 从后往前遍历新数组得到比遍历数字小的数字的数目，并存入哈希表。  
+    (3) 遍历原数组，从哈希表中获取结果。  
+* 代码：
+```Java
+    public int[] smallerNumbersThanCurrent(int[] nums) {
+        int[] res = Arrays.copyOf(nums, nums.length);
+        Arrays.sort(res);
+        int[] map = new int[101];
+        for (int i = res.length - 1; i >= 0; i--){  // 技巧：从后往前遍历。
+            map[res[i]] = i;
+        }
+        for (int i = 0; i < nums.length; i++){
+            res[i] = map[nums[i]];
+        }
+        return res;
+    }
 ```
