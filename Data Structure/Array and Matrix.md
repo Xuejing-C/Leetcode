@@ -693,7 +693,7 @@ int[] res = Arrays.copyOf(nums, nums.length);
 * 举例：Input: nums = [1,2,3,4,5,6,7], k = 3; Output: [5,6,7,1,2,3,4]   
 * 难度：中等。 简单。   
 * 思路：整体翻转 + 局部翻转。
-* 类似题目：[剑指Offer58-II. 左旋转字符串](/字符串.md)  
+* 类似题目：[剑指Offer58-II. 左旋转字符串](字符串.md)  
 * 代码：
 ```Java
     public void rotate(int[] nums, int k) {
