@@ -73,6 +73,8 @@ int[] res = Arrays.copyOf(nums, nums.length);
 
 ## 二、题目
 * [1365. 有多少小于当前数字的数字](#1365-有多少小于当前数字的数字)
+* [941. 有效的山脉数组](#941-有效的山脉数组)
+* 
 
 ```Java
 /**
@@ -603,9 +605,9 @@ int[] res = Arrays.copyOf(nums, nums.length);
 
 * 思路：
 
- * 方法一：双层for循环暴力查找。
+  * 方法一：双层for循环暴力查找。
  
- * 方法二：
+  * 方法二：
  
     (1) 复制出新数组并排序。
     
@@ -615,7 +617,7 @@ int[] res = Arrays.copyOf(nums, nums.length);
 
 * 代码：
 ```Java
-public int[] smallerNumbersThanCurrent(int[] nums) {
+    public int[] smallerNumbersThanCurrent(int[] nums) {
         int[] res = Arrays.copyOf(nums, nums.length);
         Arrays.sort(res);
         int[] map = new int[101];
@@ -629,3 +631,48 @@ public int[] smallerNumbersThanCurrent(int[] nums) {
     }
 ```
 ### 941. 有效的山脉数组
+* 要求：给定一个整数数组 arr，如果它是有效的山脉数组就返回 true，否则返回 false。
+
+* 举例：Input: nums = [1,2,3,4]，Output: false.
+
+* 难度：简单。有点难。
+
+* 思路：
+ 
+  * 双指针：要注意左或右指针没移动的情况！！
+
+* 代码：
+```Java
+    // 自己写的。慢。
+    public boolean validMountainArray(int[] arr) {
+        if (arr.length < 3) return false;
+        boolean reachTop = false;
+        int top = arr[0];
+        for (int i = 1; i < arr.length; i++){
+	    if (arr[i] == arr[i - 1]) return false;
+	    if (!reachTop && arr[i] < arr[i - 1]){
+		reachTop = true;
+		top = arr[i - 1];
+	    }
+	    if (reachTop && arr[i] > arr[i - 1]) return false;
+        }
+        return top != arr[0] && top != arr[arr.length - 1];
+    }
+
+    // 代码随想录：双指针。快。
+    public boolean validMountainArray(int[] arr) {
+        if (arr.length < 3) return false;
+        int left = 0;
+        int right = arr.length - 1;
+        while (left < arr.length - 1 && arr[left] < arr[left + 1]){
+            left++;
+        }
+        while (right > 0 && arr[right] < arr[right - 1]){
+            right--;
+        }
+        if (left == right && left != 0 && right != arr.length - 1){
+            return true;
+        }
+        return false;
+    }
+```
